@@ -1,0 +1,29 @@
+name: Build MickeyScout APK
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Install deps
+        run: npm install --legacy-peer-deps
+      - name: Prebuild
+        run: rm -rf android && npx expo prebuild --clean --platform android
+      - name: Build APK
+        run: cd android && chmod +x gradlew &&./gradlew assembleRelease --no-daemon
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: mickeyscout-release
+          path: android/app/build/outputs/apk/release/app-release.apk

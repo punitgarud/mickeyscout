@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "MickeyScout",
+    "slug": "mickeyscout",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "android": {
+      "package": "com.mickeyscout.app"
+    },
+    "plugins": []
+  }
+}

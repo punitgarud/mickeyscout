@@ -12,15 +12,10 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - name: Install deps
-        run: npm install --no-audit
-      - name: Prebuild Android
-        run: npx expo prebuild --clean --platform android --no-install
-      - name: Build APK
-        run: |
-          chmod +x android/gradlew
-          cd android
-         ./gradlew assembleRelease --no-daemon
+      - run: npm install --no-audit
+      - run: npx expo prebuild --clean --platform android --no-install
+      - run: chmod +x android/gradlew
+      - run: cd android &&./gradlew assembleRelease --no-daemon
       - uses: actions/upload-artifact@v4
         with:
           name: MickeyScout-APK

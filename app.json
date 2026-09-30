@@ -1,1 +1,17 @@
-{"expo":{"name":"MickeyScout","slug":"mickeyscout","version":"1.0.0","android":{"package":"com.mickeyscout.app"}}}
+{
+  "expo": {
+    "name": "MickeyScout",
+    "slug": "mickeyscout",
+    "version": "1.0.0",
+    "splash": {
+      "backgroundColor": "#070707",
+      "resizeMode": "contain"
+    },
+    "android": {
+      "package": "com.mickeyscout.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#070707"
+      }
+    }
+  }
+}
